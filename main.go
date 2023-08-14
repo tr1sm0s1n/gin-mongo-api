@@ -6,6 +6,7 @@ import (
 
 	"github.com/DEMYSTIF/go-mongo-api/config"
 	"github.com/DEMYSTIF/go-mongo-api/controllers"
+	"github.com/DEMYSTIF/go-mongo-api/middlewares"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,6 +23,7 @@ func main() {
 	}()
 
 	router := gin.Default()
+	router.Use(middlewares.Authority())
 	router.POST("/create", func(ctx *gin.Context) {
 		controllers.CreateOne(ctx, client)
 	})
