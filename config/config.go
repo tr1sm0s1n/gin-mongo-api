@@ -8,7 +8,7 @@ import (
 )
 
 func ConnectClient() (*mongo.Client, error) {
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://127.0.0.1:27017"))
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://root:rootpw@127.0.0.1:27017/gin-mongo?authSource=admin"))
 	return client, err
 }
 
