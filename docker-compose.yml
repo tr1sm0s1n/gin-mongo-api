@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: gin-mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=rootpw
+      - MONGO_INITDB_DATABASE=gin-mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - gin-mongo-volume:/data/db
+
+volumes:
+  gin-mongo-volume:
