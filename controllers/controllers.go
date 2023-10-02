@@ -21,15 +21,14 @@ func CreateOne(c *gin.Context, client *mongo.Client) {
 	}
 
 	coll := config.GetCollection(client, "certificates")
-	result, err := coll.InsertOne(context.TODO(), newCertificate)
-	if err != nil {
+	if _, err := coll.InsertOne(context.TODO(), newCertificate); err != nil {
 		if mongo.IsDuplicateKeyError(err) {
 			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "Duplicate Key"})
 			return
 		}
 	}
 
-	c.IndentedJSON(http.StatusCreated, result)
+	c.IndentedJSON(http.StatusCreated, newCertificate)
 }
 
 func ReadAll(c *gin.Context, client *mongo.Client) {
@@ -68,7 +67,7 @@ func ReadOne(c *gin.Context, client *mongo.Client) {
 	c.IndentedJSON(http.StatusOK, oldCertificate)
 }
 
-func UpdateOne(c *gin.Context, client *mongo.Client)  {
+func UpdateOne(c *gin.Context, client *mongo.Client) {
 	var oldCertificate models.Certificate
 	param := c.Param("id")
 	id, err := strconv.Atoi(param)
@@ -85,16 +84,16 @@ func UpdateOne(c *gin.Context, client *mongo.Client)  {
 	coll := config.GetCollection(client, "certificates")
 	filter := bson.D{{Key: "_id", Value: id}}
 	opts := options.Replace().SetUpsert(true)
-	result, err := coll.ReplaceOne(context.TODO(), filter, oldCertificate, opts)
-	if err != nil {
+	if _, err := coll.ReplaceOne(context.TODO(), filter, oldCertificate, opts); err != nil {
 		c.AbortWithStatusJSON(http.StatusNotFound, gin.H{"message": "Not Found"})
 		return
 	}
 
-	c.IndentedJSON(http.StatusOK, result)
+	c.IndentedJSON(http.StatusOK, oldCertificate)
 }
 
-func DeleteOne(c *gin.Context, client *mongo.Client)  {
+func DeleteOne(c *gin.Context, client *mongo.Client) {
+	var oldCertificate models.Certificate
 	param := c.Param("id")
 	id, err := strconv.Atoi(param)
 	if err != nil {
@@ -103,11 +102,15 @@ func DeleteOne(c *gin.Context, client *mongo.Client)  {
 	}
 	coll := config.GetCollection(client, "certificates")
 	filter := bson.D{{Key: "_id", Value: id}}
-	result, err := coll.DeleteOne(context.TODO(), filter)
-	if err != nil {
+	if err = coll.FindOne(context.TODO(), filter).Decode(&oldCertificate); err != nil {
 		c.AbortWithStatusJSON(http.StatusNotFound, gin.H{"message": "Not Found"})
 		return
 	}
+	
+	if _, err := coll.DeleteOne(context.TODO(), filter); err != nil {
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": "Internal Server Error"})
+		return
+	}
 
-	c.IndentedJSON(http.StatusOK, result)
+	c.IndentedJSON(http.StatusOK, oldCertificate)
 }

@@ -11,7 +11,7 @@ func Authority() gin.HandlerFunc {
 		authorizationHeader := c.GetHeader("Authorization")
 		expectedToken := "token"
 		if authorizationHeader != "Bearer "+expectedToken {
-			c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"message": "Forbidden"})
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"message": "Unauthorized"})
 			return
 		}
 
