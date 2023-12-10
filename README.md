@@ -4,19 +4,17 @@ Gin API for CRUD operations in MongoDB.
 
 ## 🛠 Built With
 
-<div align="left">
-<a href="https://go.dev/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/DEMYSTIF/DEMYSTIF/main/assets/icons/go.svg" width="36" height="36" alt="Go" /></a>
-<a href="https://gin-gonic.com/docs/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/DEMYSTIF/DEMYSTIF/main/assets/icons/gin.svg" width="36" height="36" alt="Gin" /></a>
-<a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/DEMYSTIF/DEMYSTIF/main/assets/icons/mongodb.svg" width="36" height="36" alt="MongoDB" /></a>
-<a href="https://docs.docker.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/DEMYSTIF/DEMYSTIF/main/assets/icons/docker.svg" width="36" height="36" alt="Docker" /></a>
-</div>
+[![Go](https://img.shields.io/badge/go-dodgerblue?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
+[![Gin](https://img.shields.io/badge/gin-dodgerblue?style=for-the-badge&logo=go&logoColor=white)](https://gin-gonic.com/)
+[![MongoDB](https://img.shields.io/badge/mongodb-forestgreen?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Docker](https://img.shields.io/badge/docker-navy?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
 ## ⚙️ Run Locally
 
 Clone the project
 
 ```bash
-git clone https://github.com/DEMYSTIF/gin-mongo-api.git
+git clone https://github.com/tr1sm0s1n/gin-mongo-api.git
 cd gin-mongo-api
 ```
 
@@ -32,19 +30,19 @@ View the database (optional)
 make enter
 ```
 
-Start the application
+Run the application
 
 ```bash
 make run
 ```
 
-For live reload, install Air (optional)
+For live reload, install air (optional)
 
 ```bash
-go install github.com/cosmtrek/air@latest
+make air
 ```
 
-Run the application with Air
+Run the application in watch mode
 
 ```bash
 make air
