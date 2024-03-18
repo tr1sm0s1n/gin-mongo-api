@@ -4,10 +4,10 @@ Gin API for CRUD operations in MongoDB.
 
 ## 🛠 Built With
 
-[![Go](https://img.shields.io/badge/go-dodgerblue?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
-[![Gin](https://img.shields.io/badge/gin-dodgerblue?style=for-the-badge&logo=go&logoColor=white)](https://gin-gonic.com/)
-[![MongoDB](https://img.shields.io/badge/mongodb-forestgreen?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Docker](https://img.shields.io/badge/docker-navy?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Go Badge](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=fff&style=for-the-badge)](https://go.dev/)
+[![Gin Badge](https://img.shields.io/badge/Gin-008ECF?logo=gin&logoColor=fff&style=for-the-badge)](https://gin-gonic.com/)
+[![MongoDB Badge](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=fff&style=for-the-badge)](https://www.mongodb.com/)
+[![Docker Badge](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=for-the-badge)](https://www.docker.com/)
 
 ## ⚙️ Run Locally
 
