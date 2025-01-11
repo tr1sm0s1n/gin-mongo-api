@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/tr1sm0s1n/go-mongo-api/config"
-	"github.com/tr1sm0s1n/go-mongo-api/models"
 	"github.com/gin-gonic/gin"
+	"github.com/tr1sm0s1n/gin-mongo-api/config"
+	"github.com/tr1sm0s1n/gin-mongo-api/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -106,7 +106,7 @@ func DeleteOne(c *gin.Context, client *mongo.Client) {
 		c.AbortWithStatusJSON(http.StatusNotFound, gin.H{"message": "Not Found"})
 		return
 	}
-	
+
 	if _, err := coll.DeleteOne(context.TODO(), filter); err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": "Internal Server Error"})
 		return

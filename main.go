@@ -4,10 +4,10 @@ import (
 	"context"
 	"log"
 
-	"github.com/tr1sm0s1n/go-mongo-api/config"
-	"github.com/tr1sm0s1n/go-mongo-api/controllers"
-	"github.com/tr1sm0s1n/go-mongo-api/middlewares"
 	"github.com/gin-gonic/gin"
+	"github.com/tr1sm0s1n/gin-mongo-api/config"
+	"github.com/tr1sm0s1n/gin-mongo-api/controllers"
+	"github.com/tr1sm0s1n/gin-mongo-api/middlewares"
 )
 
 func main() {

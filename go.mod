@@ -1,4 +1,4 @@
-module github.com/tr1sm0s1n/go-mongo-api
+module github.com/tr1sm0s1n/gin-mongo-api
 
 go 1.22.0
 
