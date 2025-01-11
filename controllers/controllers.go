@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/DEMYSTIF/go-mongo-api/config"
-	"github.com/DEMYSTIF/go-mongo-api/models"
+	"github.com/tr1sm0s1n/go-mongo-api/config"
+	"github.com/tr1sm0s1n/go-mongo-api/models"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

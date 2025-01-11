@@ -4,9 +4,9 @@ import (
 	"context"
 	"log"
 
-	"github.com/DEMYSTIF/go-mongo-api/config"
-	"github.com/DEMYSTIF/go-mongo-api/controllers"
-	"github.com/DEMYSTIF/go-mongo-api/middlewares"
+	"github.com/tr1sm0s1n/go-mongo-api/config"
+	"github.com/tr1sm0s1n/go-mongo-api/controllers"
+	"github.com/tr1sm0s1n/go-mongo-api/middlewares"
 	"github.com/gin-gonic/gin"
 )
 
