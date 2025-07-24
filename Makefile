@@ -8,43 +8,43 @@ DOCKER ?= docker
 .PHONY: air
 # Install air for live-reload.
 air:
-	mkdir -p bin
-	$(GOBIN)=$(CURRENT_DIR)/bin $(GO) install github.com/cosmtrek/air@latest
+	@mkdir -p bin
+	@$(GOBIN)=$(CURRENT_DIR)/bin $(GO) install github.com/cosmtrek/air@latest
 
 .PHONY: dev
 # Run the application in watch mode.
 dev:
-	$(CURRENT_DIR)/bin/air
+	@$(CURRENT_DIR)/bin/air
 
 .PHONY: run
 # Run the application.
 run:
-	$(GO) run .
+	@$(GO) run .
 
 .PHONY: up
 # Start the containers.
 up:
-	$(DOCKER) compose up -d
+	@$(DOCKER) compose up -d
 
 .PHONY: down
 # Stop the containers.
 down:
-	$(DOCKER) compose down
+	@$(DOCKER) compose down
 
 .PHONY: enter
 # Enter the database.
 enter:
-	$(DOCKER) exec -it gin-mongo mongosh -u root -p rootpw
+	@$(DOCKER) exec -it gin-mongo mongosh -u root -p rootpw
 
 .PHONY: tidy
 # Tidy the Go module.
 tidy:
-	$(GO) mod tidy
+	@$(GO) mod tidy
 
 .PHONY: fmt
 # Format the Go files.
 fmt:
-	$(GOFMT) -w $(GOFILES)
+	@$(GOFMT) -w $(GOFILES)
 
 help:
 	@echo ''
