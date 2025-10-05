@@ -6,8 +6,8 @@ tmp_dir = "tmp"
   args_bin = []
   bin = "./tmp/main"
   cmd = "go build -o ./tmp/main ."
-  delay = 0
-  exclude_dir = ["assets", "tmp", "vendor", "testdata", "bin"]
+  delay = 1000
+  exclude_dir = ["assets", "tmp", "vendor", "testdata"]
   exclude_file = []
   exclude_regex = ["_test.go"]
   exclude_unchanged = false
@@ -20,6 +20,8 @@ tmp_dir = "tmp"
   log = "build-errors.log"
   poll = false
   poll_interval = 0
+  post_cmd = []
+  pre_cmd = []
   rerun = false
   rerun_delay = 500
   send_interrupt = false
@@ -34,10 +36,16 @@ tmp_dir = "tmp"
 
 [log]
   main_only = false
+  silent = false
   time = false
 
 [misc]
   clean_on_exit = false
+
+[proxy]
+  app_port = 0
+  enabled = false
+  proxy_port = 0
 
 [screen]
   clear_on_rebuild = false
