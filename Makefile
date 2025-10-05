@@ -9,7 +9,7 @@ DOCKER ?= docker
 # Install air for live-reload.
 air:
 	@mkdir -p bin
-	@$(GOBIN)=$(CURRENT_DIR)/bin $(GO) install github.com/cosmtrek/air@latest
+	@$(GOBIN)=$(CURRENT_DIR)/bin $(GO) install github.com/air-verse/air@latest
 
 .PHONY: dev
 # Run the application in watch mode.
